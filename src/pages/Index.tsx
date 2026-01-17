@@ -68,14 +68,14 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen text-pandeglang-brown-700 font-sans"> {/* Removed global background */}
+    <div className="min-h-screen text-pandeglang-brown-700 font-sans bg-pandeglang-white-100">
       <Navbar />
       <HeroSection />
 
-      <main> {/* Removed global padding */}
+      <main>
         {/* Section: Identitas Pandeglang */}
         <FadeInOnScroll>
-          <section id="identitas" className="min-h-screen flex flex-col justify-center bg-pandeglang-green-50 py-16">
+          <section id="identitas" className="min-h-screen flex flex-col justify-center bg-pandeglang-white-100 py-16">
             <div className="container mx-auto px-4">
               <SectionTitle
                 title="Mengenal Pandeglang"
@@ -101,7 +101,7 @@ const Index = () => {
 
         {/* Section: Kekayaan Alam */}
         <FadeInOnScroll delay={200}>
-          <section id="alam" className="min-h-screen flex flex-col justify-center bg-pandeglang-blue-50 py-16">
+          <section id="alam" className="min-h-screen flex flex-col justify-center bg-pandeglang-white-100 py-16">
             <div className="container mx-auto px-4">
               <SectionTitle
                 title="Kekayaan Alam yang Memukau"
@@ -118,7 +118,7 @@ const Index = () => {
 
         {/* Section: Budaya & Sejarah */}
         <FadeInOnScroll delay={400}>
-          <section id="budaya-sejarah" className="min-h-screen flex flex-col justify-center bg-pandeglang-brown-50 py-16">
+          <section id="budaya-sejarah" className="min-h-screen flex flex-col justify-center bg-pandeglang-white-100 py-16">
             <div className="container mx-auto px-4">
               <SectionTitle
                 title="Jejak Budaya dan Sejarah"
@@ -144,7 +144,7 @@ const Index = () => {
 
         {/* Section: Kehidupan Masyarakat Lokal */}
         <FadeInOnScroll delay={600}>
-          <section id="warga" className="min-h-screen flex flex-col justify-center bg-pandeglang-green-50 py-16">
+          <section id="warga" className="min-h-screen flex flex-col justify-center bg-pandeglang-white-100 py-16">
             <div className="container mx-auto px-4">
               <SectionTitle
                 title="Cerita dari Hati Warga Lokal"
@@ -161,7 +161,7 @@ const Index = () => {
 
         {/* Section: Galeri Foto Imersif */}
         <FadeInOnScroll delay={800}>
-          <section id="galeri" className="min-h-screen flex flex-col justify-center bg-pandeglang-blue-50 py-16">
+          <section id="galeri" className="min-h-screen flex flex-col justify-center bg-pandeglang-white-100 py-16">
             <div className="container mx-auto px-4">
               <SectionTitle
                 title="Momen Tak Terlupakan"
@@ -174,7 +174,7 @@ const Index = () => {
 
         {/* Section: Peta Interaktif */}
         <FadeInOnScroll delay={1000}>
-          <section id="peta" className="min-h-screen flex flex-col justify-center bg-pandeglang-brown-50 py-16">
+          <section id="peta" className="min-h-screen flex flex-col justify-center bg-pandeglang-white-100 py-16">
             <div className="container mx-auto px-4">
               <SectionTitle
                 title="Temukan Petualangan Anda"
