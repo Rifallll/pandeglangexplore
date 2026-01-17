@@ -1,12 +1,29 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { // Change background after scrolling 50px
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const navLinks = [
     { name: "Beranda", href: "#" },
@@ -18,10 +35,19 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ease-in-out py-4">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300 ease-in-out ${
+        scrolled ? "bg-pandeglang-white-100 shadow-md" : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-3xl font-serif font-bold text-pandeglang-white-100 drop-shadow-md hover:text-pandeglang-green-500 transition-colors">
+        <Link
+          to="/"
+          className={`text-3xl font-serif font-bold drop-shadow-md transition-colors ${
+            scrolled ? "text-pandeglang-brown-700 hover:text-pandeglang-green-700" : "text-pandeglang-white-100 hover:text-pandeglang-green-500"
+          }`}
+        >
           Pandeglang
         </Link>
 
@@ -32,7 +58,9 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-pandeglang-white-100 hover:text-pandeglang-green-500 text-lg font-medium transition-colors drop-shadow-sm"
+                className={`text-lg font-medium transition-colors drop-shadow-sm ${
+                  scrolled ? "text-pandeglang-brown-700 hover:text-pandeglang-green-700" : "text-pandeglang-white-100 hover:text-pandeglang-green-500"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -45,7 +73,11 @@ const Navbar = () => {
         <div className="hidden md:flex">
           <Button
             asChild
-            className="bg-pandeglang-white-100 hover:bg-pandeglang-white-200 text-pandeglang-green-700 text-lg px-6 py-3 rounded-full shadow-md transition-all duration-300"
+            className={`text-lg px-6 py-3 rounded-full shadow-md transition-all duration-300 ${
+              scrolled
+                ? "bg-pandeglang-green-500 hover:bg-pandeglang-green-600 text-pandeglang-white-100"
+                : "bg-pandeglang-white-100 hover:bg-pandeglang-white-200 text-pandeglang-green-700"
+            }`}
           >
             <a href="#identitas">Jelajahi Sekarang</a>
           </Button>
@@ -54,7 +86,11 @@ const Navbar = () => {
         {/* Mobile menu toggle */}
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-7 w-7 text-pandeglang-white-100 drop-shadow-sm" /> : <Menu className="h-7 w-7 text-pandeglang-white-100 drop-shadow-sm" />}
+            {isOpen ? (
+              <X className={`h-7 w-7 drop-shadow-sm ${scrolled ? "text-pandeglang-brown-700" : "text-pandeglang-white-100"}`} />
+            ) : (
+              <Menu className={`h-7 w-7 drop-shadow-sm ${scrolled ? "text-pandeglang-brown-700" : "text-pandeglang-white-100"}`} />
+            )}
           </Button>
         </div>
       </div>
