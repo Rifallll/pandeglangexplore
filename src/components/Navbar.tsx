@@ -19,22 +19,30 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ease-in-out py-4">
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        {/* Logo */}
         <Link to="/" className="text-3xl font-serif font-bold text-pandeglang-white-100 drop-shadow-md hover:text-pandeglang-green-500 transition-colors">
           Pandeglang
         </Link>
 
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-pandeglang-white-100 hover:text-pandeglang-green-500 text-lg font-medium transition-colors drop-shadow-sm"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
+        {/* Desktop Navigation Links - Centered */}
+        <div className="hidden md:flex flex-grow justify-center">
+          <div className="flex space-x-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-pandeglang-white-100 hover:text-pandeglang-green-500 text-lg font-medium transition-colors drop-shadow-sm"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop CTA Button - Right aligned */}
+        <div className="hidden md:flex">
           <Button
             asChild
             className="bg-pandeglang-white-100 hover:bg-pandeglang-white-200 text-pandeglang-green-700 text-lg px-6 py-3 rounded-full shadow-md transition-all duration-300"
@@ -43,6 +51,7 @@ const Navbar = () => {
           </Button>
         </div>
 
+        {/* Mobile menu toggle */}
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-7 w-7 text-pandeglang-white-100 drop-shadow-sm" /> : <Menu className="h-7 w-7 text-pandeglang-white-100 drop-shadow-sm" />}
@@ -50,6 +59,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden bg-pandeglang-brown-900 bg-opacity-90 py-4 transition-all duration-300 ease-in-out">
           <div className="flex flex-col items-center space-y-4">
