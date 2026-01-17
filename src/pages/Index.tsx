@@ -68,30 +68,32 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-pandeglang-white-100 text-pandeglang-brown-700 font-sans">
+    <div className="min-h-screen text-pandeglang-brown-700 font-sans"> {/* Removed global background */}
       <Navbar />
       <HeroSection />
 
-      <main className="container mx-auto px-4 py-16">
+      <main> {/* Removed global padding */}
         {/* Section: Identitas Pandeglang */}
         <FadeInOnScroll>
-          <section id="identitas" className="min-h-screen flex flex-col justify-center">
-            <SectionTitle
-              title="Mengenal Pandeglang"
-              subtitle="Sebuah gerbang keindahan alam dan kekayaan budaya di ujung barat Pulau Jawa."
-            />
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="text-lg leading-relaxed text-pandeglang-brown-600">
-                <p className="mb-4">
-                  Pandeglang, sebuah kabupaten yang mempesona di Provinsi Banten, Indonesia, adalah permata tersembunyi yang menawarkan perpaduan sempurna antara keindahan alam, warisan budaya yang kaya, dan keramahan masyarakatnya. Dari pesisir pantai yang memukau hingga pegunungan yang menjulang, setiap sudut Pandeglang menyimpan cerita dan pengalaman yang tak terlupakan.
-                </p>
-                <p>
-                  Kami mengundang Anda untuk menyelami lebih dalam identitas Pandeglang, merasakan denyut kehidupannya, dan menemukan mengapa tempat ini begitu istimewa.
-                </p>
-              </div>
-              <div className="relative h-80 rounded-lg overflow-hidden shadow-xl">
-                <img src="/placeholder.svg" alt="Identitas Pandeglang" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-pandeglang-green-700/30"></div>
+          <section id="identitas" className="min-h-screen flex flex-col justify-center bg-pandeglang-green-50 py-16">
+            <div className="container mx-auto px-4">
+              <SectionTitle
+                title="Mengenal Pandeglang"
+                subtitle="Sebuah gerbang keindahan alam dan kekayaan budaya di ujung barat Pulau Jawa."
+              />
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="text-lg leading-relaxed text-pandeglang-brown-600">
+                  <p className="mb-4">
+                    Pandeglang, sebuah kabupaten yang mempesona di Provinsi Banten, Indonesia, adalah permata tersembunyi yang menawarkan perpaduan sempurna antara keindahan alam, warisan budaya yang kaya, dan keramahan masyarakatnya. Dari pesisir pantai yang memukau hingga pegunungan yang menjulang, setiap sudut Pandeglang menyimpan cerita dan pengalaman yang tak terlupakan.
+                  </p>
+                  <p>
+                    Kami mengundang Anda untuk menyelami lebih dalam identitas Pandeglang, merasakan denyut kehidupannya, dan menemukan mengapa tempat ini begitu istimewa.
+                  </p>
+                </div>
+                <div className="relative h-80 rounded-lg overflow-hidden shadow-xl">
+                  <img src="/placeholder.svg" alt="Identitas Pandeglang" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-pandeglang-green-700/30"></div>
+                </div>
               </div>
             </div>
           </section>
@@ -99,38 +101,42 @@ const Index = () => {
 
         {/* Section: Kekayaan Alam */}
         <FadeInOnScroll delay={200}>
-          <section id="alam" className="min-h-screen flex flex-col justify-center">
-            <SectionTitle
-              title="Kekayaan Alam yang Memukau"
-              subtitle="Dari pantai berpasir putih hingga puncak gunung yang menawan, Pandeglang adalah surga bagi pecinta alam."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {destinationData.map((destination, index) => (
-                <DestinationCard key={index} {...destination} />
-              ))}
+          <section id="alam" className="min-h-screen flex flex-col justify-center bg-pandeglang-blue-50 py-16">
+            <div className="container mx-auto px-4">
+              <SectionTitle
+                title="Kekayaan Alam yang Memukau"
+                subtitle="Dari pantai berpasir putih hingga puncak gunung yang menawan, Pandeglang adalah surga bagi pecinta alam."
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {destinationData.map((destination, index) => (
+                  <DestinationCard key={index} {...destination} />
+                ))}
+              </div>
             </div>
           </section>
         </FadeInOnScroll>
 
         {/* Section: Budaya & Sejarah */}
         <FadeInOnScroll delay={400}>
-          <section id="budaya-sejarah" className="min-h-screen flex flex-col justify-center">
-            <SectionTitle
-              title="Jejak Budaya dan Sejarah"
-              subtitle="Menyelami akar tradisi dan kisah masa lalu yang membentuk Pandeglang hari ini."
-            />
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative h-80 rounded-lg overflow-hidden shadow-xl order-2 md:order-1">
-                <img src="/placeholder.svg" alt="Budaya Pandeglang" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-pandeglang-blue-700/30"></div>
-              </div>
-              <div className="text-lg leading-relaxed text-pandeglang-brown-600 order-1 md:order-2">
-                <p className="mb-4">
-                  Pandeglang kaya akan warisan budaya dan sejarah yang tak ternilai. Dari situs-situs purbakala hingga tradisi adat yang masih lestari, setiap elemen menceritakan perjalanan panjang sebuah peradaban. Kesenian tradisional seperti Rampak Bedug, pencak silat, dan berbagai upacara adat masih hidup dan diwariskan dari generasi ke generasi.
-                </p>
-                <p>
-                  Jelajahi museum lokal, saksikan pertunjukan seni, dan berinteraksi dengan para sesepuh untuk memahami kedalaman jiwa Pandeglang.
-                </p>
+          <section id="budaya-sejarah" className="min-h-screen flex flex-col justify-center bg-pandeglang-brown-50 py-16">
+            <div className="container mx-auto px-4">
+              <SectionTitle
+                title="Jejak Budaya dan Sejarah"
+                subtitle="Menyelami akar tradisi dan kisah masa lalu yang membentuk Pandeglang hari ini."
+              />
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="relative h-80 rounded-lg overflow-hidden shadow-xl order-2 md:order-1">
+                  <img src="/placeholder.svg" alt="Budaya Pandeglang" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-pandeglang-blue-700/30"></div>
+                </div>
+                <div className="text-lg leading-relaxed text-pandeglang-brown-600 order-1 md:order-2">
+                  <p className="mb-4">
+                    Pandeglang kaya akan warisan budaya dan sejarah yang tak ternilai. Dari situs-situs purbakala hingga tradisi adat yang masih lestari, setiap elemen menceritakan perjalanan panjang sebuah peradaban. Kesenian tradisional seperti Rampak Bedug, pencak silat, dan berbagai upacara adat masih hidup dan diwariskan dari generasi ke generasi.
+                  </p>
+                  <p>
+                    Jelajahi museum lokal, saksikan pertunjukan seni, dan berinteraksi dengan para sesepuh untuk memahami kedalaman jiwa Pandeglang.
+                  </p>
+                </div>
               </div>
             </div>
           </section>
@@ -138,38 +144,44 @@ const Index = () => {
 
         {/* Section: Kehidupan Masyarakat Lokal */}
         <FadeInOnScroll delay={600}>
-          <section id="warga" className="min-h-screen flex flex-col justify-center">
-            <SectionTitle
-              title="Cerita dari Hati Warga Lokal"
-              subtitle="Dengarkan kisah-kisah inspiratif dan pengalaman otentik dari penduduk Pandeglang."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {storyData.map((story, index) => (
-                <StoryCard key={index} {...story} />
-              ))}
+          <section id="warga" className="min-h-screen flex flex-col justify-center bg-pandeglang-green-50 py-16">
+            <div className="container mx-auto px-4">
+              <SectionTitle
+                title="Cerita dari Hati Warga Lokal"
+                subtitle="Dengarkan kisah-kisah inspiratif dan pengalaman otentik dari penduduk Pandeglang."
+              />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {storyData.map((story, index) => (
+                  <StoryCard key={index} {...story} />
+                ))}
+              </div>
             </div>
           </section>
         </FadeInOnScroll>
 
         {/* Section: Galeri Foto Imersif */}
         <FadeInOnScroll delay={800}>
-          <section id="galeri" className="min-h-screen flex flex-col justify-center">
-            <SectionTitle
-              title="Momen Tak Terlupakan"
-              subtitle="Sebuah koleksi visual yang menangkap esensi keindahan dan kehidupan di Pandeglang."
-            />
-            <PhotoGallery images={galleryImages} />
+          <section id="galeri" className="min-h-screen flex flex-col justify-center bg-pandeglang-blue-50 py-16">
+            <div className="container mx-auto px-4">
+              <SectionTitle
+                title="Momen Tak Terlupakan"
+                subtitle="Sebuah koleksi visual yang menangkap esensi keindahan dan kehidupan di Pandeglang."
+              />
+              <PhotoGallery images={galleryImages} />
+            </div>
           </section>
         </FadeInOnScroll>
 
         {/* Section: Peta Interaktif */}
         <FadeInOnScroll delay={1000}>
-          <section id="peta" className="min-h-screen flex flex-col justify-center">
-            <SectionTitle
-              title="Temukan Petualangan Anda"
-              subtitle="Gunakan peta interaktif kami untuk merencanakan perjalanan Anda di Pandeglang."
-            />
-            <InteractiveMap />
+          <section id="peta" className="min-h-screen flex flex-col justify-center bg-pandeglang-brown-50 py-16">
+            <div className="container mx-auto px-4">
+              <SectionTitle
+                title="Temukan Petualangan Anda"
+                subtitle="Gunakan peta interaktif kami untuk merencanakan perjalanan Anda di Pandeglang."
+              />
+              <InteractiveMap />
+            </div>
           </section>
         </FadeInOnScroll>
       </main>
