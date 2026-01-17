@@ -10,7 +10,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 import InteractiveMap from "@/components/InteractiveMap";
 import Footer from "@/components/Footer";
 import { MadeWithDyad } from "@/components/made-with-dyad";
-import FadeInOnScroll from "@/components/FadeInOnScroll"; // Import the new component
+import FadeInOnScroll from "@/components/FadeInOnScroll";
 
 const Index = () => {
   const destinationData = [
@@ -75,7 +75,7 @@ const Index = () => {
       <main className="container mx-auto px-4 py-16">
         {/* Section: Identitas Pandeglang */}
         <FadeInOnScroll>
-          <section id="identitas" className="mb-24">
+          <section id="identitas" className="min-h-screen flex flex-col justify-center mb-24">
             <SectionTitle
               title="Mengenal Pandeglang"
               subtitle="Sebuah gerbang keindahan alam dan kekayaan budaya di ujung barat Pulau Jawa."
@@ -99,7 +99,7 @@ const Index = () => {
 
         {/* Section: Kekayaan Alam */}
         <FadeInOnScroll delay={200}>
-          <section id="alam" className="mb-24">
+          <section id="alam" className="min-h-screen flex flex-col justify-center mb-24">
             <SectionTitle
               title="Kekayaan Alam yang Memukau"
               subtitle="Dari pantai berpasir putih hingga puncak gunung yang menawan, Pandeglang adalah surga bagi pecinta alam."
@@ -114,7 +114,7 @@ const Index = () => {
 
         {/* Section: Budaya & Sejarah */}
         <FadeInOnScroll delay={400}>
-          <section id="budaya-sejarah" className="mb-24">
+          <section id="budaya-sejarah" className="min-h-screen flex flex-col justify-center mb-24">
             <SectionTitle
               title="Jejak Budaya dan Sejarah"
               subtitle="Menyelami akar tradisi dan kisah masa lalu yang membentuk Pandeglang hari ini."
@@ -138,7 +138,7 @@ const Index = () => {
 
         {/* Section: Kehidupan Masyarakat Lokal */}
         <FadeInOnScroll delay={600}>
-          <section id="warga" className="mb-24">
+          <section id="warga" className="min-h-screen flex flex-col justify-center mb-24">
             <SectionTitle
               title="Cerita dari Hati Warga Lokal"
               subtitle="Dengarkan kisah-kisah inspiratif dan pengalaman otentik dari penduduk Pandeglang."
@@ -153,7 +153,7 @@ const Index = () => {
 
         {/* Section: Galeri Foto Imersif */}
         <FadeInOnScroll delay={800}>
-          <section id="galeri" className="mb-24">
+          <section id="galeri" className="min-h-screen flex flex-col justify-center mb-24">
             <SectionTitle
               title="Momen Tak Terlupakan"
               subtitle="Sebuah koleksi visual yang menangkap esensi keindahan dan kehidupan di Pandeglang."
@@ -164,7 +164,7 @@ const Index = () => {
 
         {/* Section: Peta Interaktif */}
         <FadeInOnScroll delay={1000}>
-          <section id="peta" className="mb-24">
+          <section id="peta" className="min-h-screen flex flex-col justify-center mb-24">
             <SectionTitle
               title="Temukan Petualangan Anda"
               subtitle="Gunakan peta interaktif kami untuk merencanakan perjalanan Anda di Pandeglang."
