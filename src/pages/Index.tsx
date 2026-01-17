@@ -1,16 +1,167 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+"use client";
 
+import React from "react";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import SectionTitle from "@/components/SectionTitle";
+import DestinationCard from "@/components/DestinationCard";
+import StoryCard from "@/components/StoryCard";
+import PhotoGallery from "@/components/PhotoGallery";
+import InteractiveMap from "@/components/InteractiveMap";
+import Footer from "@/components/Footer";
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index = () => {
+  const destinationData = [
+    {
+      imageSrc: "/placeholder.svg",
+      title: "Tanjung Lesung",
+      description: "Pantai indah dengan pasir putih dan air jernih, cocok untuk relaksasi dan olahraga air.",
+      link: "#",
+    },
+    {
+      imageSrc: "/placeholder.svg",
+      title: "Gunung Karang",
+      description: "Puncak tertinggi di Pandeglang, menawarkan pemandangan spektakuler dan udara segar.",
+      link: "#",
+    },
+    {
+      imageSrc: "/placeholder.svg",
+      title: "Curug Putri",
+      description: "Air terjun alami dengan kolam jernih, tersembunyi di tengah hutan yang asri.",
+      link: "#",
+    },
+    {
+      imageSrc: "/placeholder.svg",
+      title: "Pulau Peucang",
+      description: "Surga tersembunyi di Ujung Kulon, dengan keanekaragaman hayati laut dan darat.",
+      link: "#",
+    },
+  ];
+
+  const storyData = [
+    {
+      avatarSrc: "/placeholder.svg",
+      name: "Bapak Budi",
+      story: "Saya bangga menjadi bagian dari Pandeglang. Alamnya yang indah dan masyarakatnya yang ramah selalu membuat saya bersyukur.",
+    },
+    {
+      avatarSrc: "/placeholder.svg",
+      name: "Ibu Siti",
+      story: "Kuliner Pandeglang tak ada duanya! Dari sate bandeng hingga emping melinjo, semuanya lezat dan otentik.",
+    },
+    {
+      avatarSrc: "/placeholder.svg",
+      name: "Adik Rani",
+      story: "Belajar di Pandeglang sangat menyenangkan. Banyak tempat bersejarah yang bisa dikunjungi dan menambah wawasan.",
+    },
+  ];
+
+  const galleryImages = [
+    { src: "/placeholder.svg", alt: "Pemandangan Pantai" },
+    { src: "/placeholder.svg", alt: "Sawah Hijau" },
+    { src: "/placeholder.svg", alt: "Upacara Adat" },
+    { src: "/placeholder.svg", alt: "Kuliner Lokal" },
+    { src: "/placeholder.svg", alt: "Sunset di Laut" },
+    { src: "/placeholder.svg", alt: "Hutan Lindung" },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">
-          Start building your amazing project here!
-        </p>
-      </div>
+    <div className="min-h-screen bg-pandeglang-white-100 text-pandeglang-brown-700 font-sans">
+      <Navbar />
+      <HeroSection />
+
+      <main className="container mx-auto px-4 py-16">
+        {/* Section: Identitas Pandeglang */}
+        <section id="identitas" className="mb-24">
+          <SectionTitle
+            title="Mengenal Pandeglang"
+            subtitle="Sebuah gerbang keindahan alam dan kekayaan budaya di ujung barat Pulau Jawa."
+          />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-lg leading-relaxed text-pandeglang-brown-600">
+              <p className="mb-4">
+                Pandeglang, sebuah kabupaten yang mempesona di Provinsi Banten, Indonesia, adalah permata tersembunyi yang menawarkan perpaduan sempurna antara keindahan alam, warisan budaya yang kaya, dan keramahan masyarakatnya. Dari pesisir pantai yang memukau hingga pegunungan yang menjulang, setiap sudut Pandeglang menyimpan cerita dan pengalaman yang tak terlupakan.
+              </p>
+              <p>
+                Kami mengundang Anda untuk menyelami lebih dalam identitas Pandeglang, merasakan denyut kehidupannya, dan menemukan mengapa tempat ini begitu istimewa.
+              </p>
+            </div>
+            <div className="relative h-80 rounded-lg overflow-hidden shadow-xl">
+              <img src="/placeholder.svg" alt="Identitas Pandeglang" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-pandeglang-green-700/30"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Kekayaan Alam */}
+        <section id="alam" className="mb-24">
+          <SectionTitle
+            title="Kekayaan Alam yang Memukau"
+            subtitle="Dari pantai berpasir putih hingga puncak gunung yang menawan, Pandeglang adalah surga bagi pecinta alam."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {destinationData.map((destination, index) => (
+              <DestinationCard key={index} {...destination} />
+            ))}
+          </div>
+        </section>
+
+        {/* Section: Budaya & Sejarah */}
+        <section id="budaya-sejarah" className="mb-24">
+          <SectionTitle
+            title="Jejak Budaya dan Sejarah"
+            subtitle="Menyelami akar tradisi dan kisah masa lalu yang membentuk Pandeglang hari ini."
+          />
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-80 rounded-lg overflow-hidden shadow-xl order-2 md:order-1">
+              <img src="/placeholder.svg" alt="Budaya Pandeglang" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-pandeglang-blue-700/30"></div>
+            </div>
+            <div className="text-lg leading-relaxed text-pandeglang-brown-600 order-1 md:order-2">
+              <p className="mb-4">
+                Pandeglang kaya akan warisan budaya dan sejarah yang tak ternilai. Dari situs-situs purbakala hingga tradisi adat yang masih lestari, setiap elemen menceritakan perjalanan panjang sebuah peradaban. Kesenian tradisional seperti Rampak Bedug, pencak silat, dan berbagai upacara adat masih hidup dan diwariskan dari generasi ke generasi.
+              </p>
+              <p>
+                Jelajahi museum lokal, saksikan pertunjukan seni, dan berinteraksi dengan para sesepuh untuk memahami kedalaman jiwa Pandeglang.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Kehidupan Masyarakat Lokal */}
+        <section id="warga" className="mb-24">
+          <SectionTitle
+            title="Cerita dari Hati Warga Lokal"
+            subtitle="Dengarkan kisah-kisah inspiratif dan pengalaman otentik dari penduduk Pandeglang."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {storyData.map((story, index) => (
+              <StoryCard key={index} {...story} />
+            ))}
+          </div>
+        </section>
+
+        {/* Section: Galeri Foto Imersif */}
+        <section id="galeri" className="mb-24">
+          <SectionTitle
+            title="Momen Tak Terlupakan"
+            subtitle="Sebuah koleksi visual yang menangkap esensi keindahan dan kehidupan di Pandeglang."
+          />
+          <PhotoGallery images={galleryImages} />
+        </section>
+
+        {/* Section: Peta Interaktif */}
+        <section id="peta" className="mb-24">
+          <SectionTitle
+            title="Temukan Petualangan Anda"
+            subtitle="Gunakan peta interaktif kami untuk merencanakan perjalanan Anda di Pandeglang."
+          />
+          <InteractiveMap />
+        </section>
+      </main>
+
+      <Footer />
       <MadeWithDyad />
     </div>
   );
