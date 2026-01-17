@@ -9,52 +9,67 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Beranda", path: "/" },
-    { name: "Destinasi", path: "/destinasi" },
-    { name: "Budaya", path: "/budaya" },
-    { name: "Sejarah", path: "/sejarah" },
-    { name: "Warga", path: "/warga" },
+    { name: "Beranda", href: "#" },
+    { name: "Tentang", href: "#identitas" },
+    { name: "Destinasi", href: "#alam" },
+    { name: "Budaya", href: "#budaya-sejarah" },
+    { name: "Cerita", href: "#warga" },
+    { name: "Peta", href: "#peta" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-pandeglang-white-100 bg-opacity-90 backdrop-blur-sm shadow-sm transition-all duration-300 ease-in-out">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-pandeglang-green-700 hover:text-pandeglang-green-900 transition-colors">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300 ease-in-out py-4">
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <Link to="/" className="text-3xl font-serif font-bold text-pandeglang-white-100 drop-shadow-md hover:text-pandeglang-green-500 transition-colors">
           Pandeglang
         </Link>
 
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.path}
-              className="text-pandeglang-brown-700 hover:text-pandeglang-green-500 text-lg font-medium transition-colors"
+              href={link.href}
+              className="text-pandeglang-white-100 hover:text-pandeglang-green-500 text-lg font-medium transition-colors drop-shadow-sm"
+              onClick={() => setIsOpen(false)}
             >
               {link.name}
-            </Link>
+            </a>
           ))}
+          <Button
+            asChild
+            className="bg-pandeglang-white-100 hover:bg-pandeglang-white-200 text-pandeglang-green-700 text-lg px-6 py-3 rounded-full shadow-md transition-all duration-300"
+          >
+            <a href="#identitas">Jelajahi Sekarang</a>
+          </Button>
         </div>
 
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-6 w-6 text-pandeglang-brown-700" /> : <Menu className="h-6 w-6 text-pandeglang-brown-700" />}
+            {isOpen ? <X className="h-7 w-7 text-pandeglang-white-100 drop-shadow-sm" /> : <Menu className="h-7 w-7 text-pandeglang-white-100 drop-shadow-sm" />}
           </Button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-pandeglang-white-100 py-4 transition-all duration-300 ease-in-out">
+        <div className="md:hidden bg-pandeglang-brown-900 bg-opacity-90 py-4 transition-all duration-300 ease-in-out">
           <div className="flex flex-col items-center space-y-4">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.path}
-                className="text-pandeglang-brown-700 hover:text-pandeglang-green-500 text-lg font-medium transition-colors"
+                href={link.href}
+                className="text-pandeglang-white-100 hover:text-pandeglang-green-500 text-lg font-medium transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
+            <Button
+              asChild
+              className="bg-pandeglang-white-100 hover:bg-pandeglang-white-200 text-pandeglang-green-700 text-lg px-6 py-3 rounded-full shadow-md transition-all duration-300"
+              onClick={() => setIsOpen(false)}
+            >
+              <a href="#identitas">Jelajahi Sekarang</a>
+            </Button>
           </div>
         </div>
       )}
