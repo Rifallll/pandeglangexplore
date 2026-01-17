@@ -15,28 +15,52 @@ import FadeInOnScroll from "@/components/FadeInOnScroll";
 const Index = () => {
   const destinationData = [
     {
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/placeholder.svg", // Ganti dengan gambar asli
       title: "Tanjung Lesung",
-      description: "Pantai indah dengan pasir putih dan air jernih, cocok untuk relaksasi dan olahraga air.",
+      description: "Pantai eksotis dengan pasir putih dan air biru jernih. Surga bagi pecinta snorkeling dan watersport.",
       link: "#",
+      category: "PANTAI & RESORT",
+      size: "large",
     },
     {
-      imageSrc: "/placeholder.svg",
-      title: "Gunung Karang",
-      description: "Puncak tertinggi di Pandeglang, menawarkan pemandangan spektakuler dan udara segar.",
+      imageSrc: "/placeholder.svg", // Ganti dengan gambar asli
+      title: "Gunung Krakatau",
+      description: "Saksikan keagungan Anak Krakatau dari dekat. Pengalaman mendaki gunung berapi aktif.",
       link: "#",
+      category: "PETUALANGAN",
+      size: "small",
     },
     {
-      imageSrc: "/placeholder.svg",
-      title: "Curug Putri",
-      description: "Air terjun alami dengan kolam jernih, tersembunyi di tengah hutan yang asri.",
+      imageSrc: "/placeholder.svg", // Ganti dengan gambar asli
+      title: "Curug Gendang",
+      description: "Air terjun tersembunyi di tengah hutan hujan tropis. Kesegaran alam yang memukau.",
       link: "#",
+      category: "AIR TERJUN",
+      size: "small",
     },
     {
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/placeholder.svg", // Ganti dengan gambar asli
+      title: "Kampung Baduy",
+      description: "Menyelami kehidupan Suku Baduy yang menjaga tradisi leluhur dengan teguh.",
+      link: "#",
+      category: "BUDAYA",
+      size: "small",
+    },
+    {
+      imageSrc: "/placeholder.svg", // Ganti dengan gambar asli
       title: "Pulau Peucang",
       description: "Surga tersembunyi di Ujung Kulon, dengan keanekaragaman hayati laut dan darat.",
       link: "#",
+      category: "PULAU",
+      size: "small",
+    },
+    {
+      imageSrc: "/placeholder.svg", // Ganti dengan gambar asli
+      title: "Curug Putri",
+      description: "Air terjun alami dengan kolam jernih, tersembunyi di tengah hutan yang asri.",
+      link: "#",
+      category: "AIR TERJUN",
+      size: "small",
     },
   ];
 
@@ -68,7 +92,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen text-pandeglang-brown-700 font-sans"> {/* Removed global background */}
+    <div className="min-h-screen text-pandeglang-brown-700 font-sans">
       <Navbar />
       <HeroSection />
 
@@ -107,9 +131,13 @@ const Index = () => {
                 title="Kekayaan Alam yang Memukau"
                 subtitle="Dari pantai berpasir putih hingga puncak gunung yang menawan, Pandeglang adalah surga bagi pecinta alam."
               />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {destinationData.map((destination, index) => (
-                  <DestinationCard key={index} {...destination} />
+                  <DestinationCard
+                    key={index}
+                    {...destination}
+                    className={destination.size === "large" ? "md:col-span-2 lg:col-span-2" : ""}
+                  />
                 ))}
               </div>
             </div>
