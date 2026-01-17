@@ -72,9 +72,9 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
           {category}
         </span>
       </div>
-      <div className="px-4 py-3"> {/* Changed p-4 to px-4 py-3 for more compact vertical spacing */}
-        <h4 className="text-xl font-semibold text-pandeglang-green-700 mb-2">{title}</h4>
-        <p className="text-pandeglang-brown-500 text-sm">{description}</p>
+      <div className="px-4 py-2"> {/* Mengurangi padding vertikal */}
+        <h4 className="text-xl font-semibold text-pandeglang-green-700 mb-1">{title}</h4> {/* Mengurangi margin-bottom */}
+        <p className="text-pandeglang-brown-500 text-sm">{description}</p> {/* Menghapus margin-bottom */}
       </div>
     </div>
   );
