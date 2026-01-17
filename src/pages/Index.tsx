@@ -73,7 +73,7 @@ const Index = () => {
 
       <main className="container mx-auto px-4 py-16">
         {/* Section: Identitas Pandeglang */}
-        <section id="identitas" className="mb-24">
+        <section id="tentang" className="mb-24">
           <SectionTitle
             title="Mengenal Pandeglang"
             subtitle="Sebuah gerbang keindahan alam dan kekayaan budaya di ujung barat Pulau Jawa."
@@ -95,7 +95,7 @@ const Index = () => {
         </section>
 
         {/* Section: Kekayaan Alam */}
-        <section id="alam" className="mb-24">
+        <section id="destinasi" className="mb-24">
           <SectionTitle
             title="Kekayaan Alam yang Memukau"
             subtitle="Dari pantai berpasir putih hingga puncak gunung yang menawan, Pandeglang adalah surga bagi pecinta alam."
@@ -108,7 +108,7 @@ const Index = () => {
         </section>
 
         {/* Section: Budaya & Sejarah */}
-        <section id="budaya-sejarah" className="mb-24">
+        <section id="budaya" className="mb-24">
           <SectionTitle
             title="Jejak Budaya dan Sejarah"
             subtitle="Menyelami akar tradisi dan kisah masa lalu yang membentuk Pandeglang hari ini."
@@ -130,7 +130,7 @@ const Index = () => {
         </section>
 
         {/* Section: Kehidupan Masyarakat Lokal */}
-        <section id="warga" className="mb-24">
+        <section id="cerita" className="mb-24">
           <SectionTitle
             title="Cerita dari Hati Warga Lokal"
             subtitle="Dengarkan kisah-kisah inspiratif dan pengalaman otentik dari penduduk Pandeglang."
