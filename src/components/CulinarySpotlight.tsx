@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { getAssetPath } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
 
 const CulinarySpotlight = () => {
@@ -31,7 +32,7 @@ const CulinarySpotlight = () => {
                     >
                         <div className="absolute -inset-4 bg-[#C5A065]/10 blur-3xl rounded-full"></div>
                         <img
-                            src="/images/culinary_prestige.png"
+                            src={getAssetPath("/images/culinary_prestige.png")}
                             alt="Kuliner Pandeglang"
                             className="relative rounded-[2rem] md:rounded-[2.5rem] w-full h-[350px] md:h-[600px] object-cover shadow-2xl border border-gray-100"
                         />

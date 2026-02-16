@@ -6,6 +6,7 @@ import { Calendar, MapPin, Ticket, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { eventData } from "@/data/events";
+import { getAssetPath } from "@/lib/utils";
 
 const EventCalendar = () => {
     const { lang, t } = useLanguage();
@@ -96,7 +97,7 @@ const EventCalendar = () => {
                                 {/* Image Section */}
                                 <div className="absolute inset-0">
                                     <img
-                                        src={event?.image}
+                                        src={event?.image ? getAssetPath(event.image) : ""}
                                         alt={event?.title}
                                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     />

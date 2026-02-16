@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Star, MapPin, Navigation } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface DestinationCardProps {
@@ -104,7 +104,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
 
       <motion.img
         layoutId={`image-${index}`}
-        src={imageSrc}
+        src={getAssetPath(imageSrc)}
         alt={title}
         className={cn(
           "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",

@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { getAssetPath } from "@/lib/utils";
 import MagneticButton from "@/components/MagneticButton";
 
 const BrandStory = () => {
@@ -34,7 +35,7 @@ const BrandStory = () => {
                         <div className="relative overflow-hidden rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-2xl">
                             <motion.img
                                 style={{ scale: imageScale }}
-                                src="/images/baduyy.jpg"
+                                src={getAssetPath("/images/baduyy.jpg")}
                                 alt="Warisan Budaya Pandeglang"
                                 className="w-full h-[450px] md:h-[650px] object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                             />

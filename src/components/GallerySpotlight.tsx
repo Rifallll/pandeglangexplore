@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Camera, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import { getAssetPath } from "@/lib/utils";
 import { useSoundFX } from "@/hooks/useSoundFX";
 
 const galleryImages = [
@@ -48,7 +49,7 @@ const GallerySpotlight = () => {
                             className={`relative overflow-hidden rounded-3xl group ${img.size}`}
                         >
                             <OptimizedImage
-                                src={img.src}
+                                src={getAssetPath(img.src)}
                                 alt={img.alt}
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                             />

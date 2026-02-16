@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import SectionTitle from "./SectionTitle";
+import { getAssetPath } from "@/lib/utils";
 
 const TestimonialsSection = () => {
     const testimonials = [
@@ -66,7 +67,7 @@ const TestimonialsSection = () => {
 
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
-                                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                                    <img src={getAssetPath(item.image)} alt={item.name} className="w-full h-full object-cover" />
                                 </div>
                                 <div>
                                     <h4 className="font-serif font-bold text-black">{item.name}</h4>

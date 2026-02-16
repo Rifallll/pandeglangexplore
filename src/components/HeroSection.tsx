@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-const heroBg = "/images/hero_pandeglang.png";
+import { getAssetPath } from "@/lib/utils";
+const heroBg = getAssetPath("/images/hero_pandeglang.png");
 import { ChevronDown, Crown } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
