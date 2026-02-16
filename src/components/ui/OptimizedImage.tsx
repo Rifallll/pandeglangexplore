@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 
 interface OptimizedImageProps {
     src: string;
@@ -10,6 +10,7 @@ interface OptimizedImageProps {
     className?: string;
     priority?: boolean;
     objectFit?: "cover" | "contain" | "fill";
+    fallbackSrc?: string;
 }
 
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
@@ -17,55 +18,56 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     alt,
     className,
     priority = false,
-    objectFit = "cover"
+    objectFit = "cover",
+    fallbackSrc = "/placeholder.svg"
 }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(false);
+    const [imageSrc, setImageSrc] = useState(src);
 
     useEffect(() => {
-        const img = new Image();
-        img.src = src;
-        img.onload = () => setIsLoaded(true);
-        img.onerror = () => setError(true);
+        setImageSrc(src);
+        setError(false);
+        setIsLoaded(false);
     }, [src]);
 
+    const handleError = () => {
+        if (!error) {
+            setError(true);
+            setImageSrc(getAssetPath(fallbackSrc));
+            // Force load set to true so the fallback displays
+            setIsLoaded(true);
+        }
+    };
+
     return (
-        <div className={cn("relative overflow-hidden bg-white/5", className)}>
-            {/* Low Quality / Placeholder Blur */}
+        <div className={cn("relative overflow-hidden bg-gray-200", className)}>
             <AnimatePresence>
                 {!isLoaded && !error && (
                     <motion.div
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-black/20 backdrop-blur-3xl"
+                        className="absolute inset-0 bg-gray-200 animate-pulse"
                     />
                 )}
             </AnimatePresence>
 
-            {/* Main Image */}
             <motion.img
-                initial={{ opacity: 0, scale: priority ? 1 : 1.05 }}
-                animate={{
-                    opacity: isLoaded ? 1 : 0,
-                    scale: isLoaded ? 1 : (priority ? 1 : 1.05)
-                }}
-                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                src={src}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                src={imageSrc}
                 alt={alt}
                 loading={priority ? "eager" : "lazy"}
+                onLoad={() => setIsLoaded(true)}
+                onError={handleError}
                 className={cn(
-                    "w-full h-full transition-all duration-1000",
+                    "w-full h-full transition-all duration-700",
                     objectFit === "cover" ? "object-cover" :
                         objectFit === "contain" ? "object-contain" : "object-fill",
-                    !isLoaded && "blur-md scale-110"
+                    error ? "opacity-50 grayscale p-8" : ""
                 )}
             />
-
-            {error && (
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                    <span className="text-white/20 text-[10px] font-mono uppercase tracking-[0.2em]">Visual Not Found</span>
-                </div>
-            )}
         </div>
     );
 };
