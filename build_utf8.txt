@@ -1,0 +1,20 @@
+
+> vite_react_shadcn_ts@0.0.0 build
+> vite build
+
+[36mvite v6.4.1 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 1424 modules transformed.
+[31m✗[39m Build failed in 4.28s
+[31merror during build:
+[31m[vite-plugin-pwa:build] [plugin vite-plugin-pwa:build] There was an error during the build:
+  Could not load C:\Users\ASUS\dyad-apps\pandeglangexplore\src/services/newsService (imported by src/pages/NewsPage.tsx): ENOENT: no such file or directory, open 'C:\Users\ASUS\dyad-apps\pandeglangexplore\src\services\newsService'
+Additionally, handling the error in the 'buildEnd' hook caused the following error:
+  Could not load C:\Users\ASUS\dyad-apps\pandeglangexplore\src/services/newsService (imported by src/pages/NewsPage.tsx): ENOENT: no such file or directory, open 'C:\Users\ASUS\dyad-apps\pandeglangexplore\src\services\newsService'[31m
+    at getRollupError (file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/rollup/dist/es/shared/node-entry.js:23467:39
+    at async catchUnfinishedHookActions (file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/rollup/dist/es/shared/node-entry.js:22925:16)
+    at async rollupInternal (file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/rollup/dist/es/shared/node-entry.js:23450:5)
+    at async buildEnvironment (file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46235:14)
+    at async Object.defaultBuildApp [as buildApp] (file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:46713:5)
+    at async CAC.<anonymous> (file:///C:/Users/ASUS/dyad-apps/pandeglangexplore/node_modules/vite/dist/node/cli.js:863:7)[39m

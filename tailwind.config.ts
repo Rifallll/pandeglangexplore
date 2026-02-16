@@ -18,6 +18,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -62,60 +66,12 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom colors for Pandeglang theme
+        // We keep these for legacy support but moving towards semantic variables
         pandeglang: {
-          green: {
-            DEFAULT: "#34A853", // Hijau Alam
-            50: "#E6F4E8",
-            100: "#D1EAD4",
-            200: "#A8D8B0",
-            300: "#7FC78C",
-            400: "#56B668",
-            500: "#34A853",
-            600: "#2A8742",
-            700: "#206631",
-            800: "#164520",
-            900: "#0C2410",
-          },
-          blue: {
-            DEFAULT: "#4285F4", // Biru Laut
-            50: "#E8F0FE",
-            100: "#D1E0FC",
-            200: "#A4C2F7",
-            300: "#77A3F2",
-            400: "#4A85ED",
-            500: "#4285F4",
-            600: "#356BC0",
-            700: "#28528C",
-            800: "#1B3959",
-            900: "#0E2026",
-          },
-          brown: {
-            DEFAULT: "#8B4513", // Cokelat Tanah
-            50: "#F2EBE6",
-            100: "#E6DCD1",
-            200: "#CCBBA3",
-            300: "#B39A75",
-            400: "#997947",
-            500: "#8B4513",
-            600: "#70370F",
-            700: "#54290B",
-            800: "#381B07",
-            900: "#1C0D03",
-          },
-          white: {
-            DEFAULT: "#F8F8F8", // Putih Hangat
-            50: "#FFFFFF",
-            100: "#F8F8F8",
-            200: "#EFEFEF",
-            300: "#E0E0E0",
-            400: "#D1D1D1",
-            500: "#C2C2C2",
-            600: "#B3B3B3",
-            700: "#A4A4A4",
-            800: "#959595",
-            900: "#868686",
-          },
+          green: { DEFAULT: "hsl(var(--secondary))" },
+          blue: { DEFAULT: "hsl(var(--primary))" },
+          brown: { DEFAULT: "hsl(var(--accent))" },
+          white: { DEFAULT: "hsl(var(--background))" },
         },
       },
       borderRadius: {
@@ -147,5 +103,6 @@ export default {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
