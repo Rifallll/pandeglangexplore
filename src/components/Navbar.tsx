@@ -115,8 +115,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Desktop Tools - Right */}
-          <div className="hidden md:flex items-center justify-end gap-3 flex-none ml-auto">
+          {/* Desktop Tools - Right (Only visible on Large Screens) */}
+          <div className="hidden lg:flex items-center justify-end gap-3 flex-none ml-auto">
             <div className="flex items-center gap-2">
               {/* Global Search Trigger */}
               <div className="relative z-50 flex items-center gap-2">
