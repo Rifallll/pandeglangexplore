@@ -1,0 +1,1 @@
+import{r as t}from"./index-ltGGs3b6.js";import{a}from"./destinations-DV2L9mzu.js";const c=()=>{const[s,n]=t.useState(a),[e,r]=t.useState(!1),[o,i]=t.useState(null);return{destinations:s,loading:e,error:o}};export{c as u};
