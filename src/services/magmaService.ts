@@ -9,8 +9,10 @@ export interface VolcanoReport {
     var_data_date: string; // Report date
 }
 
-// Proxy prefix for local dev
-const BASE_URL = "/magma-api";
+// Proxy prefix for local dev, direct (with cors proxy) for prod
+const BASE_URL = import.meta.env.PROD
+    ? "https://cors-proxy.fringe.zone/https://magma.esdm.go.id"
+    : "/magma-api";
 
 
 // Helper to parse HTML string

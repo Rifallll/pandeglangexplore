@@ -73,6 +73,8 @@ const App = () => {
       wheelMultiplier: 1,
       touchMultiplier: 2,
       infinite: false,
+      syncTouch: true, // Improve touch sync
+      syncTouchLerp: 0.1,
     });
 
     function raf(time: number) {

@@ -18,7 +18,9 @@ export interface WeatherData {
     windSpeed: string;
 }
 
-const BMKG_API_BASE = "/bmkg-api/DataMKG";
+const BMKG_API_BASE = import.meta.env.PROD
+    ? "https://cors-proxy.fringe.zone/https://data.bmkg.go.id/DataMKG"
+    : "/bmkg-api/DataMKG";
 
 export const fetchLatestEarthquake = async (): Promise<EarthquakeData | null> => {
     try {
