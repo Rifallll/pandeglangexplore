@@ -1,0 +1,16 @@
+# Robots.txt for Pandeglang Explore
+# https://pandeglangexplore.com/robots.txt
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (if any in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://pandeglangexplore.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+# Crawl-delay: 1
