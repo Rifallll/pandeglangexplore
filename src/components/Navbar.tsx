@@ -90,7 +90,7 @@ const Navbar = () => {
             <div className={`w-8 h-8 rounded-full border-2 border-[#C5A065] flex items-center justify-center transition-transform group-hover:rotate-12 duration-500 ${scrolled ? "bg-[#C5A065]" : "bg-transparent"}`}>
               <span className={`text-[10px] font-bold ${scrolled ? "text-black" : "text-[#C5A065]"}`}>P</span>
             </div>
-            <span className={`font-serif text-xl tracking-tighter font-bold transition-colors duration-500 hidden sm:block text-white`}>
+            <span className={`font-serif text-lg md:text-xl tracking-tighter font-bold transition-colors duration-500 text-white block`}>
               Pandeglang<span className="text-[#C5A065]">.</span>
             </span>
           </Link>
@@ -172,37 +172,20 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Tools & Toggle */}
-          <div className="lg:hidden flex items-center gap-1.5 ml-auto">
-            <div className="bg-white/5 rounded-full border border-white/5 py-1 px-2.5 flex items-center gap-2 md:hidden">
-              <WeatherWidget />
-            </div>
-
+          {/* Mobile Tools & Toggle - SIMPLIFIED */}
+          <div className="lg:hidden flex items-center gap-4 ml-auto">
+            {/* Language Switcher for Mobile */}
             <button
-              onClick={() => { setIsMuted(!isMuted); if (isMuted) playSound("success"); }}
-              className={`p-2 rounded-full border ${isMuted ? "bg-white/5 border-white/10 text-white/40" : "bg-[#C5A065]/10 border-[#C5A065]/20 text-[#C5A065]"} md:hidden`}
-              aria-label="Toggle Sound"
+              onClick={() => { setLang(lang === "ID" ? "EN" : "ID"); playSound("click"); }}
+              className="text-white/60 hover:text-[#C5A065] text-[10px] font-black tracking-widest transition-colors"
             >
-              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              {lang}
             </button>
 
-            <button
-              onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-[#C5A065] bg-white/5 rounded-full border border-white/5 md:hidden"
-              aria-label="Cari"
-            >
-              <Search size={20} />
-            </button>
-            <button
-              onClick={() => setIsEmergencyOpen(true)}
-              className="p-2 text-red-500 bg-red-500/10 rounded-full border border-red-500/20 animate-pulse md:hidden"
-              aria-label="Darurat"
-            >
-              <AlertCircle size={20} />
-            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-white"
+              className="p-2 text-white/90 hover:text-[#C5A065] transition-colors"
+              aria-label="Menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
