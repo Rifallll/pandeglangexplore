@@ -191,7 +191,9 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </nav>   {/* Premium Mobile Menu */}
+      </nav>
+
+      {/* Premium Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
