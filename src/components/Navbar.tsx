@@ -76,8 +76,8 @@ const Navbar = () => {
           className={`
             relative flex items-center justify-between transition-all duration-700
             ${scrolled
-              ? "w-[95%] md:w-[90%] max-w-7xl bg-black/60 backdrop-blur-xl border border-white/10 rounded-full py-3 px-6 shadow-2xl"
-              : "w-full max-w-7xl px-6 md:px-12 py-4 bg-transparent border-transparent"
+              ? "w-[92%] md:w-[90%] max-w-7xl bg-black/70 backdrop-blur-xl border border-white/10 rounded-full py-3 px-4 md:px-6 shadow-2xl"
+              : "w-full max-w-7xl px-4 md:px-12 py-4 bg-transparent border-transparent"
             }
           `}
         >
@@ -90,7 +90,7 @@ const Navbar = () => {
             <div className={`w-8 h-8 rounded-full border-2 border-[#C5A065] flex items-center justify-center transition-transform group-hover:rotate-12 duration-500 ${scrolled ? "bg-[#C5A065]" : "bg-transparent"}`}>
               <span className={`text-[10px] font-bold ${scrolled ? "text-black" : "text-[#C5A065]"}`}>P</span>
             </div>
-            <span className={`font-serif text-lg md:text-xl tracking-tighter font-bold transition-colors duration-500 text-white block`}>
+            <span className={`font-serif text-base md:text-xl tracking-tighter font-bold transition-colors duration-500 text-white block`}>
               Pandeglang<span className="text-[#C5A065]">.</span>
             </span>
           </Link>
