@@ -6,9 +6,11 @@ import { ShoppingBag, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getAssetPath } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import { FALLBACK_MAP } from "@/lib/constants";
 
 const CulinarySpotlight = () => {
     const { lang, t } = useLanguage();
+    const [imgError, setImgError] = React.useState(false);
 
     const delicacies = lang === "ID" ? [
         { name: "Sate Bandeng", desc: "Sate ikan bandeng tanpa tulang dengan bumbu rempah rahasia." },
@@ -31,8 +33,10 @@ const CulinarySpotlight = () => {
                         className="lg:w-1/2 relative"
                     >
                         <div className="absolute -inset-4 bg-[#C5A065]/10 blur-3xl rounded-full"></div>
+
                         <img
-                            src={getAssetPath("/images/culinary_prestige.png")}
+                            src={imgError ? FALLBACK_MAP["Culinary"] : getAssetPath("/images/culinary_prestige.png")}
+                            onError={() => setImgError(true)}
                             alt="Kuliner Pandeglang"
                             className="relative rounded-[2rem] md:rounded-[2.5rem] w-full h-[350px] md:h-[600px] object-cover shadow-2xl border border-gray-100"
                         />

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import OptimizedImage from "@/components/ui/OptimizedImage";
 import { useSoundFX } from "@/hooks/useSoundFX";
+import { getAssetPath } from "@/lib/utils";
 
 const ExperienceGrid = () => {
     const { t } = useLanguage();
@@ -17,7 +18,7 @@ const ExperienceGrid = () => {
             title: t("exp.item1.cat"),
             subtitle: t("exp.item1.title"),
             description: t("exp.item1.desc"),
-            image: "/images/dest_anak_krakatau.png",
+            image: getAssetPath("/images/dest_anak_krakatau.png"),
             link: "/story/krakatau",
             color: "bg-orange-500"
         },
@@ -25,7 +26,7 @@ const ExperienceGrid = () => {
             title: t("exp.item2.cat"),
             subtitle: t("exp.item2.title"),
             description: t("exp.item2.desc"),
-            image: "/images/dest_tanjung_lesung.png",
+            image: getAssetPath("/images/dest_tanjung_lesung.png"),
             link: "/story/tanjung-lesung",
             color: "bg-blue-500"
         },
@@ -33,7 +34,7 @@ const ExperienceGrid = () => {
             title: t("exp.item3.cat"),
             subtitle: t("exp.item3.title"),
             description: t("exp.item3.desc"),
-            image: "/images/dest_kampung_baduy.png",
+            image: getAssetPath("/images/dest_kampung_baduy.png"),
             link: "/story/baduy",
             color: "bg-emerald-500"
         }

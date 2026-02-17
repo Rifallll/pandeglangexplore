@@ -2,9 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
+import { motion, useTransform, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
 import { ArrowRight, MapPin, Layers, Plus, Clock, Globe, Info, Hash, Phone, Users, Ruler, MoveRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import { getAssetPath } from "@/lib/utils";
 
 // --- Utility Components ---
 
@@ -127,10 +129,9 @@ const Hero3D = ({ id }) => {
     return (
         <section
             id={id}
-            className="min-h-[90svh] md:h-screen w-full relative overflow-hidden bg-[#050505] flex items-center justify-center perspective-container py-24 md:py-0"
+            className="min-h-[90svh] md:h-screen w-full relative overflow-hidden bg-[#050505] flex items-center justify-center perspective-container py-24 md:py-0 [perspective:1200px]"
             onMouseMove={handleMouseMove}
             onMouseLeave={mouseLeave}
-            style={{ perspective: "1200px" }}
         >
             <motion.div
                 className="relative w-[95%] md:w-[90%] h-full md:h-[80%] flex items-center justify-center preserve-3d"
@@ -148,9 +149,10 @@ const Hero3D = ({ id }) => {
                         transform: "translateZ(-100px) scale(1.1)"
                     }}
                 >
-                    <img
-                        src="/images/conservation_pandeglang.png"
+                    <OptimizedImage
+                        src={getAssetPath("/images/conservation_pandeglang.png")}
                         alt="Background"
+                        category="Nature"
                         className="w-full h-full object-cover grayscale"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]"></div>
@@ -158,8 +160,7 @@ const Hero3D = ({ id }) => {
 
                 {/* 2. Middle Layer - Main Typography */}
                 <motion.div
-                    className="relative z-10 text-center mix-blend-screen translate-z-[50px] px-6"
-                    style={{ transform: "translateZ(50px)" }}
+                    className="relative z-10 text-center mix-blend-screen px-6 [transform:translateZ(50px)]"
                 >
                     <span className="text-[#C5A065] font-mono text-[9px] md:text-xs tracking-[0.6em] md:tracking-[1em] uppercase block mb-6">
                         {lang === "ID" ? "Mutiara dari Banten" : "Pearl of Banten"}
@@ -189,6 +190,7 @@ const Hotspot = ({ top, left, label, content }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
+                aria-label={label}
             >
                 <Plus size={16} className={`text-black transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`} />
                 <span className="absolute inset-0 rounded-full bg-[#C5A065] animate-ping opacity-20"></span>
@@ -230,7 +232,12 @@ const RevealRow = ({ id, subtitle, title, desc, img, reverse = false, hotspotDat
                         )}
 
                         <div className="absolute inset-0 bg-[#C5A065]/10 translate-y-full group-hover:translate-y-0 transition-transform duration-700 z-10 mix-blend-overlay pointer-events-none"></div>
-                        <img src={img} alt={title} className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105" />
+                        <OptimizedImage
+                            src={getAssetPath(img)}
+                            alt={title}
+                            category="History"
+                            className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105"
+                        />
                     </div>
                 </div>
                 <div className="w-full md:w-1/2">
@@ -466,7 +473,12 @@ const AboutPage = () => {
                         "/images/dest_ujung_kulon.png"
                     ].map((src, i) => (
                         <div key={i} className="shrink-0 w-[300px] md:w-[450px] aspect-[16/9] relative group overflow-hidden rounded-lg">
-                            <img src={src} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="" />
+                            <OptimizedImage
+                                src={getAssetPath(src)}
+                                category="Culture"
+                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                alt=""
+                            />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <span className="absolute bottom-4 left-4 font-mono text-xs text-[#C5A065] opacity-0 group-hover:opacity-100 transition-opacity delay-100">0{i + 1}</span>
                         </div>

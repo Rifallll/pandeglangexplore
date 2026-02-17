@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Utensils, MapPin, Tag, ArrowRight, Star, Clock, Info, ExternalLink, ChevronRight, X, Flame, Coffee, Compass, Search } from "lucide-react";
 import { toast } from "sonner";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import MagneticButton from "@/components/MagneticButton";
@@ -40,7 +40,7 @@ const FoodCard = ({ dish, onOpen }: { dish: CulinaryDish; onOpen: (dish: Culinar
             className="group relative bg-[#0A0A0A] border border-white/5 rounded-2xl overflow-hidden cursor-pointer hover:border-[#C5A065]/50 transition-all duration-500"
         >
             <div onClick={() => { onOpen(dish); playSound("click"); }} className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                <OptimizedImage src={dish.image} alt={dish.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                <OptimizedImage src={getAssetPath(dish.image)} alt={dish.name} category="Culinary" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
             </div>
 
             <div className="absolute top-4 left-4 z-20">
@@ -129,7 +129,7 @@ const DetailModal = ({ dish, onClose }: { dish: CulinaryDish; onClose: () => voi
 
                 <div className="flex flex-col lg:flex-row h-full overflow-y-auto no-scrollbar pb-12 md:pb-0">
                     <div className="w-full lg:w-5/12 aspect-square lg:aspect-auto relative shrink-0">
-                        <OptimizedImage src={dish.image} alt={dish.name} className="w-full h-full object-cover" />
+                        <OptimizedImage src={getAssetPath(dish.image)} alt={dish.name} category="Culinary" className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F] via-transparent to-transparent"></div>
                         <div className="absolute bottom-8 left-8">
                             <div className="bg-[#C5A065] text-black px-4 py-2 font-black text-xl rounded-sm shadow-xl tracking-tighter uppercase whitespace-nowrap">{lang === "ID" ? "ESTIMASI" : "ESTIMATE"}: {dish.displayPrice}</div>

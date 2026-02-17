@@ -3,6 +3,8 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ChevronRight, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { EventItem } from "@/data/events";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import { getAssetPath } from "@/lib/utils";
 
 interface EventCard3DProps {
     item: EventItem;
@@ -66,16 +68,13 @@ const EventCard3D: React.FC<EventCard3DProps> = ({ item, index, lang }) => {
                 className="relative w-full md:w-1/2 aspect-[4/3] rounded-3xl cursor-pointer group perspective-1000"
             >
                 <div
-                    style={{
-                        transform: "translateZ(75px)",
-                        transformStyle: "preserve-3d",
-                    }}
-                    className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#C5A065]/20"
+                    className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#C5A065]/20 [transform:translateZ(75px)] [transform-style:preserve-3d]"
                 >
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500 z-10" />
-                    <img
-                        src={item.image || "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&auto=format&fit=crop&q=60"}
+                    <OptimizedImage
+                        src={getAssetPath(item.image || "")}
                         alt={item.title}
+                        category={item.category}
                         className="w-full h-full object-cover transform scale-110 group-hover:scale-125 transition-all duration-1000"
                     />
 
@@ -87,10 +86,7 @@ const EventCard3D: React.FC<EventCard3DProps> = ({ item, index, lang }) => {
 
                 {/* Floating Date Badge */}
                 <div
-                    style={{
-                        transform: "translateZ(100px) translateY(-50%)",
-                    }}
-                    className={`absolute top-1/2 ${index % 2 === 0 ? "-right-12" : "-left-12"} z-30 hidden md:flex flex-col items-center justify-center w-24 h-24 bg-[#0a0a0a] border border-[#C5A065] rounded-full shadow-[0_0_30px_rgba(197,160,101,0.2)]`}
+                    className={`absolute top-1/2 ${index % 2 === 0 ? "-right-12" : "-left-12"} z-30 hidden md:flex flex-col items-center justify-center w-24 h-24 bg-[#0a0a0a] border border-[#C5A065] rounded-full shadow-[0_0_30px_rgba(197,160,101,0.2)] [transform:translateZ(100px)_translateY(-50%)]`}
                 >
                     <span className="text-[#C5A065] font-black text-2xl font-serif">{item.day}</span>
                     <span className="text-white/50 text-[10px] uppercase tracking-widest font-bold">{item.month.substring(0, 3)}</span>

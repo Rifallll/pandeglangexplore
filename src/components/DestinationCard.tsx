@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Star, MapPin, Navigation } from "lucide-react";
 import { cn, getAssetPath } from "@/lib/utils";
+import { FALLBACK_MAP } from "@/lib/constants";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface DestinationCardProps {
@@ -34,6 +35,22 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
   onSelect,
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [imgSrc, setImgSrc] = useState(getAssetPath(imageSrc));
+  const [hasError, setHasError] = useState(false);
+
+  // Update state when prop changes
+  React.useEffect(() => {
+    setImgSrc(getAssetPath(imageSrc));
+    setHasError(false);
+  }, [imageSrc]);
+
+  const handleError = () => {
+    if (!hasError) {
+      setHasError(true);
+      const fallback = FALLBACK_MAP[category] || FALLBACK_MAP["default"];
+      setImgSrc(fallback);
+    }
+  };
 
   // Weather Logic
   const [weather, setWeather] = useState<{ temp: number; icon: string; desc: string } | null>(null);
@@ -102,10 +119,15 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
         <div className="absolute inset-0 bg-gray-200 animate-pulse z-10" />
       )}
 
+
+
+      return (
+      // ...
       <motion.img
         layoutId={`image-${index}`}
-        src={getAssetPath(imageSrc)}
+        src={imgSrc}
         alt={title}
+        onError={handleError}
         className={cn(
           "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
           layout === "fixed" ? "aspect-[4/3]" : "",

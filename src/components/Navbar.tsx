@@ -173,14 +173,14 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Tools & Toggle */}
-          <div className="md:hidden flex items-center gap-1.5 ml-auto">
-            <div className="bg-white/5 rounded-full border border-white/5 py-1 px-2.5 flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-1.5 ml-auto">
+            <div className="bg-white/5 rounded-full border border-white/5 py-1 px-2.5 flex items-center gap-2 md:hidden">
               <WeatherWidget />
             </div>
 
             <button
               onClick={() => { setIsMuted(!isMuted); if (isMuted) playSound("success"); }}
-              className={`p-2 rounded-full border ${isMuted ? "bg-white/5 border-white/10 text-white/40" : "bg-[#C5A065]/10 border-[#C5A065]/20 text-[#C5A065]"}`}
+              className={`p-2 rounded-full border ${isMuted ? "bg-white/5 border-white/10 text-white/40" : "bg-[#C5A065]/10 border-[#C5A065]/20 text-[#C5A065]"} md:hidden`}
               aria-label="Toggle Sound"
             >
               {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
@@ -188,14 +188,14 @@ const Navbar = () => {
 
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-[#C5A065] bg-white/5 rounded-full border border-white/5"
+              className="p-2 text-[#C5A065] bg-white/5 rounded-full border border-white/5 md:hidden"
               aria-label="Cari"
             >
               <Search size={20} />
             </button>
             <button
               onClick={() => setIsEmergencyOpen(true)}
-              className="p-2 text-red-500 bg-red-500/10 rounded-full border border-red-500/20 animate-pulse"
+              className="p-2 text-red-500 bg-red-500/10 rounded-full border border-red-500/20 animate-pulse md:hidden"
               aria-label="Darurat"
             >
               <AlertCircle size={20} />
@@ -215,7 +215,7 @@ const Navbar = () => {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
-            className="fixed inset-0 z-[100010] bg-black/90 backdrop-blur-2xl flex flex-col md:hidden"
+            className="fixed inset-0 z-[100010] bg-black/95 backdrop-blur-2xl flex flex-col lg:hidden overflow-y-auto"
           >
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none opacity-20">
@@ -223,7 +223,7 @@ const Navbar = () => {
               <div className="absolute bottom-[-10%] left-[-10%] w-[60%] aspect-square rounded-full bg-gradient-to-tr from-[#C5A065]/10 to-transparent blur-3xl"></div>
             </div>
 
-            <div className="flex-1 flex flex-col justify-end p-8 pb-16 relative z-10">
+            <div className="flex-1 flex flex-col justify-between min-h-[100svh] p-6 pb-32 relative z-10 w-full">
               <div className="space-y-4 mb-10">
                 <p className="text-[#C5A065] font-mono text-[10px] tracking-[0.5em] uppercase border-l border-[#C5A065] pl-4 mb-6">Navigasi Utama</p>
                 <div className="px-2">
@@ -268,7 +268,7 @@ const Navbar = () => {
                 </div>
 
                 {/* BOTTOM QUICK DOCK (Mobile Action Center) */}
-                <div className="grid grid-cols-2 gap-2 px-2">
+                <div className="grid grid-cols-2 gap-3 px-1">
                   <button
                     onClick={() => { setIsOpen(false); setIsSearchOpen(true); }}
                     className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
@@ -285,7 +285,7 @@ const Navbar = () => {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 px-2">
+                <div className="grid grid-cols-2 gap-3 px-1">
                   <button
                     onClick={(e) => handleNavClick(e, { name: "Home", href: "/" })}
                     aria-label="Kembali ke Beranda"

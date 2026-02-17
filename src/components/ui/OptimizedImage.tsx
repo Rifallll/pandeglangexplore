@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn, getAssetPath } from "@/lib/utils";
+import { FALLBACK_MAP } from "@/lib/constants";
 
 interface OptimizedImageProps {
     src: string;
@@ -11,6 +12,7 @@ interface OptimizedImageProps {
     priority?: boolean;
     objectFit?: "cover" | "contain" | "fill";
     fallbackSrc?: string;
+    category?: string;
 }
 
 const OptimizedImage: React.FC<OptimizedImageProps> = ({
@@ -19,7 +21,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     className,
     priority = false,
     objectFit = "cover",
-    fallbackSrc = "/placeholder.svg"
+    fallbackSrc,
+    category = "default"
 }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(false);
@@ -34,20 +37,28 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
     const handleError = () => {
         if (!error) {
             setError(true);
-            setImageSrc(getAssetPath(fallbackSrc));
-            // Force load set to true so the fallback displays
+            // 1. Try provided fallbackSrc first
+            // 2. Try Smart Category Fallback (KW Images)
+            // 3. Last resort: default placeholder
+
+            const smartFallback = FALLBACK_MAP[category] || FALLBACK_MAP["default"];
+
+            // Check if user provided a specific fallback, otherwise use smart fallback
+            const finalFallback = fallbackSrc ? getAssetPath(fallbackSrc) : smartFallback;
+
+            setImageSrc(finalFallback);
             setIsLoaded(true);
         }
     };
 
     return (
-        <div className={cn("relative overflow-hidden bg-gray-200", className)}>
+        <div className={cn("relative overflow-hidden bg-muted", className)}>
             <AnimatePresence>
                 {!isLoaded && !error && (
                     <motion.div
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="absolute inset-0 bg-gray-200 animate-pulse"
+                        className="absolute inset-0 bg-muted animate-pulse"
                     />
                 )}
             </AnimatePresence>
@@ -65,9 +76,15 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
                     "w-full h-full transition-all duration-700",
                     objectFit === "cover" ? "object-cover" :
                         objectFit === "contain" ? "object-contain" : "object-fill",
-                    error ? "opacity-50 grayscale p-8" : ""
+                    // When error/fallback is active, maybe apply a subtle separation? 
+                    // But user wants "KW" images to look real, so keep them vibrant.
                 )}
             />
+            {error && (
+                <div className="absolute top-2 right-2 bg-black/50 text-[10px] text-white px-2 py-1 rounded-full backdrop-blur-sm">
+                    Image Substitute
+                </div>
+            )}
         </div>
     );
 };

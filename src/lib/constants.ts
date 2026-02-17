@@ -1,0 +1,19 @@
+
+export const FALLBACK_MAP: Record<string, string> = {
+    "Beach": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    "Mountain": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+    "Waterfall": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=800&q=80",
+    "Forest": "https://images.unsplash.com/photo-1448375240586-dfd8f3793300?w=800&q=80",
+    "Nature": "https://images.unsplash.com/photo-1501854140884-074cf2b21d25?w=800&q=80",
+    "Culinary": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80",
+    "Culture": "https://images.unsplash.com/photo-1590053363321-44754d92eb77?w=800&q=80",
+    "History": "https://images.unsplash.com/photo-1599940827267-28d16790a36e?w=800&q=80",
+    "Relaxation": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80",
+    "Volcano": "https://images.unsplash.com/photo-1629814485536-15dec422af3c?w=800&q=80",
+    "Adventure": "https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=800&q=80",
+    "Resort": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+    "City": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80",
+    "Activity": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80",
+    "Scenery": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&q=80",
+    "default": "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=800&q=80"
+};

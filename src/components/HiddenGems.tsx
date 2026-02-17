@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, MapPin } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { getAssetPath } from "@/lib/utils";
 
 const HiddenGems = () => {
     const { lang, t } = useLanguage();
@@ -44,7 +45,7 @@ const HiddenGems = () => {
                     className="relative group rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-white/5"
                 >
                     <img
-                        src="/images/dest_curug_putri.png"
+                        src={getAssetPath("/images/dest_curug_putri.png")}
                         alt="Curug Putri Pandeglang"
                         className="w-full h-[600px] md:h-[700px] object-cover transition-transform duration-1000 group-hover:scale-110"
                     />

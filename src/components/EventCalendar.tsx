@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { eventData } from "@/data/events";
 import { getAssetPath } from "@/lib/utils";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const EventCalendar = () => {
     const { lang, t } = useLanguage();
@@ -96,10 +97,12 @@ const EventCalendar = () => {
                             <Link to={`/kalender/${event?.id}`} className="block relative h-[650px] rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] bg-white transition-all duration-700 group-hover:-translate-y-4">
                                 {/* Image Section */}
                                 <div className="absolute inset-0">
-                                    <img
+                                    <OptimizedImage
                                         src={event?.image ? getAssetPath(event.image) : ""}
-                                        alt={event?.title}
-                                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                        alt={event?.title || "Event Image"}
+                                        category={event?.category}
+                                        className="w-full h-full"
+                                        objectFit="cover"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-100"></div>
                                 </div>

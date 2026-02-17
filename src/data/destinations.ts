@@ -1,3 +1,5 @@
+import { getAssetPath } from "@/lib/utils";
+
 export interface Destination {
     imageSrc: string;
     title: string;
@@ -20,7 +22,7 @@ export interface Destination {
 export const allDestinations: Destination[] = [
     // 1. TANJUNG LESUNG
     {
-        imageSrc: "/images/dest_tanjung_lesung.png",
+        imageSrc: getAssetPath("/images/dest_tanjung_lesung.png"),
         title: "Tanjung Lesung",
         coords: [-6.4716, 105.6567],
         description: "Surga pantai tropis dengan pasir putih.",
@@ -38,7 +40,7 @@ export const allDestinations: Destination[] = [
     },
     // 2. UJUNG KULON
     {
-        imageSrc: "/images/dest_ujung_kulon.png",
+        imageSrc: getAssetPath("/images/dest_ujung_kulon.png"),
         title: "Hutan Ujung Kulon",
         coords: [-6.7725, 105.3694],
         description: "Jantung paru-paru dunia di ujung Jawa.",
@@ -56,7 +58,7 @@ export const allDestinations: Destination[] = [
     },
     // 3. ANAK KRAKATAU
     {
-        imageSrc: "/images/dest_anak_krakatau.png",
+        imageSrc: getAssetPath("/images/dest_anak_krakatau.png"),
         title: "Anak Krakatau",
         coords: [-6.1022, 105.4228],
         description: "Kekuatan alam yang memukau dan bersejarah.",
@@ -74,7 +76,7 @@ export const allDestinations: Destination[] = [
     },
     // 4. KAMPUNG BADUY
     {
-        imageSrc: "/images/dest_kampung_baduy.png",
+        imageSrc: getAssetPath("/images/dest_kampung_baduy.png"),
         title: "Kampung Baduy",
         coords: [-6.6355, 106.2587],
         description: "Kearifan lokal yang terjaga utuh.",
@@ -92,7 +94,7 @@ export const allDestinations: Destination[] = [
     },
     // 5. RAMPAK BEDUG
     {
-        imageSrc: "/images/dest_rampak_bedug.png",
+        imageSrc: getAssetPath("/images/dest_rampak_bedug.png"),
         title: "Seni Rampak Bedug",
         coords: [-6.3086, 106.1067],
         description: "Detak ritmis budaya asli Pandeglang.",
@@ -109,7 +111,7 @@ export const allDestinations: Destination[] = [
     },
     // 6. MENES HERITAGE
     {
-        imageSrc: "/images/dest_menes_heritage.png",
+        imageSrc: getAssetPath("/images/dest_menes_heritage.png"),
         title: "Menes Heritage",
         coords: [-6.3789, 105.9321],
         description: "Jejak sejarah kolonial yang estetik.",
@@ -144,7 +146,7 @@ export const allDestinations: Destination[] = [
     },
     // 8. PANTAI BUGEL
     {
-        imageSrc: "/images/dest_pantai_bugel.png",
+        imageSrc: getAssetPath("/images/dest_pantai_bugel.png"),
         title: "Pantai Bugel",
         coords: [-6.8202, 105.8436],
         description: "Spot hidden gem dengan karang unik.",
@@ -161,7 +163,7 @@ export const allDestinations: Destination[] = [
     },
     // 9. CURUG CIAJENG
     {
-        imageSrc: "/images/dest_curug_ciajeng.png",
+        imageSrc: getAssetPath("/images/dest_curug_ciajeng.png"),
         title: "Curug Ciajeng",
         coords: [-6.255, 105.952],
         description: "Air terjun bertingkat di pedalaman.",
@@ -351,7 +353,7 @@ export const allDestinations: Destination[] = [
 
     // 20. PULAU PEUCANG
     {
-        imageSrc: "/images/dest_pulau_peucang.png",
+        imageSrc: getAssetPath("/images/dest_pulau_peucang.png"),
         title: "Pulau Peucang",
         coords: [-6.7725, 105.3694],
         description: "Pasir putih halus dan rusa liar yang bersahabat.",
@@ -453,7 +455,7 @@ export const allDestinations: Destination[] = [
     },
     // 26. PEMANDIAN CIKOROMOY
     {
-        imageSrc: "/images/dest_cikoromoy.png",
+        imageSrc: getAssetPath("/images/dest_cikoromoy.png"),
         title: "Pemandian Cikoromoy",
         coords: [-6.332, 106.005],
         description: "Kolam mata air pegunungan yang super dingin.",
@@ -487,7 +489,7 @@ export const allDestinations: Destination[] = [
     },
     // 28. CURUG PUTRI CARITA
     {
-        imageSrc: "/images/dest_curug_putri.png",
+        imageSrc: getAssetPath("/images/dest_curug_putri.png"),
         title: "Curug Putri",
         coords: [-6.2777, 105.8569],
         description: "Little Green Canyon-nya Banten.",

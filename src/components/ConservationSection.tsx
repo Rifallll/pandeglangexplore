@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Shield, Leaf, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
+import { getAssetPath } from "@/lib/utils";
 
 const ConservationSection = () => {
     const { lang, t } = useLanguage();
@@ -19,7 +20,7 @@ const ConservationSection = () => {
                         {/* Image Section */}
                         <div className="lg:w-1/2 relative h-[500px] lg:h-[700px] w-full">
                             <img
-                                src="/images/conservation_pandeglang.png"
+                                src={getAssetPath("/images/conservation_pandeglang.png")}
                                 alt="Konservasi Badak Jawa"
                                 className="w-full h-full object-cover"
                             />

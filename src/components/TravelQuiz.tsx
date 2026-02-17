@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, ArrowRight, RefreshCw, Compass } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
+import { getAssetPath } from "@/lib/utils";
 
 const TravelQuiz = () => {
     const { lang, t } = useLanguage();
@@ -94,7 +95,7 @@ const TravelQuiz = () => {
     return (
         <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
             <div className="absolute inset-0 opacity-30">
-                <img src="/images/quiz_pandeglang.png" alt="Quiz Background" className="w-full h-full object-cover" />
+                <img src={getAssetPath("/images/quiz_pandeglang.png")} alt="Quiz Background" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black"></div>
             </div>
 

@@ -104,7 +104,7 @@ const EmergencyHub: React.FC<EmergencyHubProps> = ({ isOpen, onClose }) => {
                         initial={{ scale: 0.9, opacity: 0, y: 20 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                        className="bg-[#0f0f0f] border border-white/10 rounded-[3rem] w-full max-w-4xl overflow-hidden shadow-2xl"
+                        className="bg-[#0f0f0f] border border-white/10 rounded-[2rem] md:rounded-[3rem] w-full max-w-4xl max-h-[85vh] overflow-y-auto shadow-2xl relative"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="relative p-8 md:p-12">
@@ -126,14 +126,16 @@ const EmergencyHub: React.FC<EmergencyHubProps> = ({ isOpen, onClose }) => {
                                 </div>
                                 <button
                                     onClick={onClose}
-                                    className="p-4 bg-white/5 rounded-full hover:bg-white/10 text-white transition-all border border-white/10"
+                                    className="sticky top-0 right-0 p-3 md:p-4 bg-white/5 rounded-full hover:bg-white/10 text-white transition-all border border-white/10 backdrop-blur-md z-50 shrink-0"
+                                    title="Tutup"
+                                    aria-label="Tutup Emergency Hub"
                                 >
-                                    <X size={24} />
+                                    <X size={20} />
                                 </button>
                             </div>
 
                             {/* Contacts Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                                 {contacts.map((contact, idx) => (
                                     <MagneticButton key={idx} strength={15}>
                                         <button

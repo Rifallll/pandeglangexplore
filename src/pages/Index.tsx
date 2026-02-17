@@ -26,7 +26,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import MagneticButton from "@/components/MagneticButton";
 
-import { getGoogleMapsLink } from "@/lib/utils";
+import { getGoogleMapsLink, getAssetPath } from "@/lib/utils";
 
 import { allDestinations } from "@/data/destinations";
 import { useDestinations } from "@/hooks/useDestinations";
@@ -48,7 +48,7 @@ const Index = () => {
 
   const destinationData = [
     {
-      imageSrc: "/images/dest_tanjung_lesung.png",
+      imageSrc: getAssetPath("/images/dest_tanjung_lesung.png"),
       title: "Tanjung Lesung",
       description: lang === "ID" ? "Pantai eksotis dengan pasir putih dan air biru jernih. Surga bagi pecinta snorkeling dan watersport." : "Exotic beach with white sand and crystal blue water. A paradise for snorkeling and watersport lovers.",
       link: getDestLink("Tanjung Lesung"),
@@ -59,7 +59,7 @@ const Index = () => {
       audioMood: "ocean"
     },
     {
-      imageSrc: "/images/dest_anak_krakatau.png",
+      imageSrc: getAssetPath("/images/dest_anak_krakatau.png"),
       title: "Gunung Krakatau",
       description: lang === "ID" ? "Saksikan keagungan Anak Krakatau dari dekat. Pengalaman mendaki gunung berapi aktif." : "Witness the majesty of Anak Krakatau up close. Experience hiking an active volcano.",
       link: getDestLink("Anak Krakatau"),
@@ -70,7 +70,7 @@ const Index = () => {
       audioMood: "ocean"
     },
     {
-      imageSrc: "/images/dest_ujung_kulon.png",
+      imageSrc: getAssetPath("/images/dest_ujung_kulon.png"),
       title: "Ujung Kulon",
       description: lang === "ID" ? "Habitat Badak Jawa yang langka. Jelajahi hutan hujan tropis yang masih perawan." : "Home of the rare Javan Rhino. Explore pristine tropical rainforests.",
       link: getDestLink("Hutan Ujung Kulon"),
@@ -81,7 +81,7 @@ const Index = () => {
       audioMood: "forest"
     },
     {
-      imageSrc: "/images/dest_kampung_baduy.png",
+      imageSrc: getAssetPath("/images/dest_kampung_baduy.png"),
       title: "Kampung Baduy",
       description: lang === "ID" ? "Menyelami kehidupan Suku Baduy yang menjaga tradisi leluhur dengan teguh." : "Immerse yourself in the life of the Baduy Tribe, steadfastly guarding ancestral traditions.",
       link: getDestLink("Wisata Baduy Luar"),
@@ -92,7 +92,7 @@ const Index = () => {
       audioMood: "wind"
     },
     {
-      imageSrc: "/images/dest_pulau_peucang.png",
+      imageSrc: getAssetPath("/images/dest_pulau_peucang.png"),
       title: "Pulau Peucang",
       description: lang === "ID" ? "Surga tersembunyi dengan keanekaragaman hayati laut dan darat yang memukau." : "A hidden paradise with stunning marine and terrestrial biodiversity.",
       link: getDestLink("Pulau Peucang"),
