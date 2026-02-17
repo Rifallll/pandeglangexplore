@@ -22,7 +22,6 @@ const BMKG_API_BASE = import.meta.env.PROD
     ? "https://cors-proxy.fringe.zone/https://data.bmkg.go.id/DataMKG"
     : "/bmkg-api/DataMKG";
 
-console.log("BMKG API Base:", BMKG_API_BASE, "Mode:", import.meta.env.MODE);
 
 export const fetchLatestEarthquake = async (): Promise<EarthquakeData | null> => {
     try {
