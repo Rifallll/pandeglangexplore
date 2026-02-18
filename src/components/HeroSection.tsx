@@ -78,18 +78,7 @@ const HeroSection = () => {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center"
         >
-          {/* MAHAKARYA LABEL */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="flex items-center gap-3 mb-6 border border-[#C5A065]/30 px-6 py-2 rounded-full bg-[#C5A065]/10 backdrop-blur-md shadow-[0_0_20px_rgba(197,160,101,0.2)]"
-          >
-            <Crown size={14} className="text-[#C5A065] animate-pulse" />
-            <span className="uppercase tracking-[0.3em] text-[10px] md:text-xs text-[#C5A065] font-black">
-              {lang === "ID" ? "MAHAKARYA PANDEGLANG" : "THE GRAND MASTERPIECE"}
-            </span>
-          </motion.div>
+
 
           <motion.h1
             style={{ y: y1 }}
@@ -158,7 +147,7 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4"
+        className="absolute bottom-24 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.4 }}
         transition={{ delay: 1.5 }}

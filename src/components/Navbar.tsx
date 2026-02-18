@@ -270,11 +270,11 @@ const Navbar = () => {
                   </button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 px-1">
+                <div className="grid grid-cols-3 gap-2 px-1">
                   <button
                     onClick={(e) => handleNavClick(e, { name: "Home", href: "/" })}
                     aria-label="Kembali ke Beranda"
-                    className="flex flex-col items-center justify-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
+                    className="flex flex-col items-center justify-center gap-2 p-3 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-active:bg-black"></div>
                     <span className="text-[9px] font-black uppercase tracking-widest leading-none">Beranda</span>
@@ -282,7 +282,7 @@ const Navbar = () => {
                   <button
                     onClick={(e) => handleNavClick(e, { name: "Peta", href: "/peta" })}
                     aria-label="Buka Peta Interaktif"
-                    className="flex flex-col items-center justify-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
+                    className="flex flex-col items-center justify-center gap-2 p-3 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-active:bg-black"></div>
                     <span className="text-[9px] font-black uppercase tracking-widest leading-none">Peta</span>
@@ -290,7 +290,7 @@ const Navbar = () => {
                   <button
                     onClick={(e) => handleNavClick(e, { name: "Kuliner", href: "/kuliner" })}
                     aria-label="Buka Daftar Kuliner"
-                    className="flex flex-col items-center justify-center gap-2 p-4 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
+                    className="flex flex-col items-center justify-center gap-2 p-3 bg-white/5 rounded-2xl border border-white/5 active:bg-[#C5A065] active:text-black transition-all"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-active:bg-black"></div>
                     <span className="text-[9px] font-black uppercase tracking-widest leading-none">Kuliner</span>

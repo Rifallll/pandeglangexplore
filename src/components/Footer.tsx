@@ -7,9 +7,9 @@ import { useLanguage } from "@/context/LanguageContext";
 const Footer = () => {
   const { t } = useLanguage();
   return (
-    <footer className="bg-[#111] text-white pt-20 pb-10 border-t border-white/5">
+    <footer className="bg-[#111] text-white pt-12 md:pt-20 pb-10 border-t border-white/5">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16">
           {/* Column 1: Brand & Description */}
           <div>
             <h3 className="text-2xl font-serif font-bold mb-6 text-white tracking-tight">

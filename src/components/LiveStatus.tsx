@@ -163,7 +163,7 @@ const LiveStatus = () => {
     if (isMenuOpen || statuses.length === 0 || !current) return null;
 
     return (
-        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 md:bottom-auto md:left-auto md:top-24 md:right-8 z-[100] flex flex-col items-center md:items-end pointer-events-auto">
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 md:bottom-auto md:left-auto md:top-24 md:right-8 md:translate-x-0 z-[100] flex flex-col items-center md:items-end pointer-events-auto">
             <AnimatePresence mode="wait">
                 <motion.div
                     key={isExpanded ? "expanded" : current.id}

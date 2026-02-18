@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/pandeglangexplore/dev-sw.js?dev-sw', { scope: '/pandeglangexplore/', type: 'classic' })

@@ -40,7 +40,7 @@ const ExperienceGrid = () => {
         }
     ];
     return (
-        <section className="py-24 bg-white overflow-hidden">
+        <section className="py-12 md:py-24 bg-white overflow-hidden">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <span className="text-[#C5A065] text-sm font-bold tracking-[0.3em] uppercase block mb-4">{t("exp.vibe")}</span>
