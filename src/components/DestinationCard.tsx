@@ -121,8 +121,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({
 
 
 
-      return (
-      // ...
+
       <motion.img
         layoutId={`image-${index}`}
         src={imgSrc}
